@@ -1,94 +1,70 @@
-# TaskFlow - Demo Test Project
+# TaskFlow
 
-A simple full-stack task management app used for testing OpenCode.
+A simple and beautiful task management app built with Next.js + TypeScript.
 
 ## Purpose
 
-This is a demo/test project to practice using OpenCode with a realistic structure.
+Personal task manager that runs entirely in the browser. Data is saved to `localStorage`.
 
 ## Tech Stack
 
-- **Frontend**: Next.js 15 (App Router) + TypeScript + Tailwind CSS
-- **Backend**: Next.js API Routes
-- **Database**: SQLite (via Prisma)
-- **Auth**: NextAuth.js (Credentials provider for demo)
-- **Validation**: Zod
-- **Testing**: Vitest + Testing Library + Playwright
-- **Package Manager**: bun
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (strict)
+- **Styling**: Tailwind CSS
+- **Icons**: lucide-react
+- **State**: React useState + localStorage
+- **Package Manager**: bun / npm / pnpm
 
 ## Project Structure
 
 ```
 src/
-├── app/                    # Next.js App Router
-│   ├── (auth)/             # Auth pages (login/register)
-│   ├── (dashboard)/        # Protected pages
-│   ├── api/                # API routes
-│   └── layout.tsx
-├── components/             # Reusable UI components
-│   ├── ui/                 # Base components (Button, Input...)
-│   └── tasks/              # Task-related components
-├── lib/                    # Utilities, db client, auth config
-├── features/               # Feature-based modules
-│   ├── tasks/
-│   └── users/
-└── types/                  # Shared TypeScript types
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Main page (client component)
+│   └── globals.css
+├── components/
+│   └── tasks/
+│       ├── TaskForm.tsx    # Add new task
+│       ├── TaskList.tsx    # List of tasks
+│       ├── TaskItem.tsx    # Single task (toggle, edit, delete)
+│       └── FilterBar.tsx   # All / Active / Completed filter
+└── types/
+    └── task.ts             # Task & Filter types
 ```
 
 ## Important Commands
 
 ```bash
-bun install                 # Install dependencies
-bun dev                     # Start development server
-bun test                    # Run unit tests
-bun test:e2e                # Run Playwright e2e tests
-bun lint                    # Run ESLint
-bun build                   # Production build
-bun db:push                 # Push Prisma schema to DB
-bun db:studio               # Open Prisma Studio
+bun install          # or npm install / pnpm install
+bun dev              # Start dev server → http://localhost:3000
+bun build            # Production build
+bun start            # Start production server
+bun lint             # Run ESLint
+bun test             # Run tests (Vitest)
 ```
+
+## Features
+
+- Add new tasks
+- Mark tasks as complete / active
+- Edit task title (double-click or pencil icon)
+- Delete tasks
+- Filter: All / Active / Completed
+- Clear all completed tasks
+- Persist data in localStorage
 
 ## Coding Rules
 
 - Use TypeScript strict mode — **no `any`**
-- Prefer Server Components by default, use Client Components only when needed
-- All forms must use Zod validation
-- API routes must return consistent error shape: `{ error: string, code?: string }`
-- Always write unit tests for new business logic
-- Use early returns to avoid deep nesting
-- Keep components small and focused
-- Use `features/` folder for domain logic, `components/` for pure UI
-
-## Database
-
-- Prisma schema lives in `prisma/schema.prisma`
-- Main models: `User`, `Task`, `Project`
-- Always run `bun db:push` after changing the schema
-
-## Authentication
-
-- NextAuth.js with Credentials provider (for demo only)
-- Protected routes use middleware in `src/middleware.ts`
-- Session available via `auth()` helper in Server Components
-
-## Testing Guidelines
-
-- Unit tests: put next to the file or in `__tests__` folder
-- Use `data-testid` for important interactive elements
-- Prefer user-centric assertions (Testing Library)
-- E2E tests live in `e2e/`
+- Prefer small, focused components
+- Use early returns
+- Keep business logic out of pure UI components when possible
+- Use `clsx` for conditional class names
+- Accessible buttons (aria-label)
 
 ## What to avoid
 
-- Don't put business logic inside React components
-- Don't use `any` or disable TypeScript checks
-- Don't commit `.env` or database files
-- Don't create giant components (>150 lines)
-
-## Current Focus (Demo)
-
-This project is intentionally simple so we can test OpenCode features:
-- Planning with `/plan`
-- Code review with `/review`
-- Writing tests with `/write-tests`
-- Fixing bugs with `/fix-issue`
+- Don't use `any`
+- Don't put large logic inside JSX
+- Don't break the existing component structure without reason

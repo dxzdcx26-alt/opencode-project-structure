@@ -1,86 +1,57 @@
-# OpenCode Project Structure
+# TaskFlow
 
-Clean, production-ready project structure for **OpenCode** — the open-source AI coding agent.
+A clean, modern Task / Todo app built with **Next.js 15 + TypeScript + Tailwind CSS**.
 
-Converted and improved from the popular Claude Code project structure.
+Designed to work perfectly with [OpenCode](https://opencode.ai).
+
+## Features
+
+- Add, edit, complete, and delete tasks
+- Filter by All / Active / Completed
+- Clear completed tasks
+- Data persists in `localStorage`
+- Beautiful, responsive UI
 
 ## Quick Start
 
 ```bash
+# Clone
 git clone https://github.com/dxzdcx26-alt/opencode-project-structure.git
 cd opencode-project-structure
+
+# Install
+bun install          # or npm install / pnpm install
+
+# Run
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## OpenCode Ready
+
+This project includes a complete OpenCode setup:
+
+- `AGENTS.md` – project context
+- `.opencode/agents/` – code-reviewer, security-auditor, planner...
+- `.opencode/commands/` – `/review`, `/plan`, `/fix-issue`, `/write-tests`...
+- `.opencode/skills/` and `.opencode/rules/`
+
+Just run:
+
+```bash
 opencode
 ```
 
-Or copy the structure into your existing project.
-
-## Full Structure
-
-```
-.
-├── AGENTS.md                     # Project context & coding guidelines
-├── AGENTS.local.md               # Personal overrides (git-ignored)
-├── opencode.json                 # Model, permissions, MCP
-├── .env.example                  # Example environment variables
-├── LICENSE
-├── README.md
-└── .opencode/
-    ├── agents/
-    │   ├── code-reviewer.md
-    │   ├── security-auditor.md
-    │   ├── test-writer.md
-    │   ├── planner.md
-    │   └── docs-writer.md
-    ├── commands/
-    │   ├── review.md             # /review
-    │   ├── fix-issue.md          # /fix-issue
-    │   ├── write-tests.md        # /write-tests
-    │   ├── plan.md               # /plan
-    │   ├── docs.md               # /docs
-    │   └── refactor.md           # /refactor
-    ├── skills/
-    │   ├── deploy/
-    │   ├── refactor/
-    │   ├── write-tests/
-    │   └── code-review/
-    └── rules/
-        ├── code-style.md
-        ├── testing.md
-        ├── api-conventions.md
-        └── git-conventions.md
-```
-
-## Available Slash Commands
+## Scripts
 
 | Command | Description |
 |---------|-------------|
-| `/review` | Thorough code review |
-| `/fix-issue` | Investigate and fix a bug |
-| `/write-tests` | Write or improve tests |
-| `/plan` | Create a step-by-step plan |
-| `/docs` | Generate or improve documentation |
-| `/refactor` | Safely refactor code |
-
-## Mapping from Claude Code
-
-| Claude Code | OpenCode |
-|-------------|----------|
-| `CLAUDE.md` | `AGENTS.md` |
-| `CLAUDE.local.md` | `AGENTS.local.md` |
-| `.claude/` | `.opencode/` |
-| `.mcp.json` | `opencode.json` → `mcp` section |
-| `rules/` | `.opencode/rules/` |
-| `commands/` | `.opencode/commands/` |
-| `skills/` | `.opencode/skills/<name>/SKILL.md` |
-| `agents/` | `.opencode/agents/` |
-
-## Recommended Next Steps
-
-1. Edit `AGENTS.md` to describe **your real project**
-2. Set your preferred model in `opencode.json`
-3. Copy `.env.example` → `.env` and add your keys (never commit `.env`)
-4. Run `/init` inside OpenCode to let it improve `AGENTS.md`
-5. Start working — try `/plan` or `/review`
+| `bun dev` | Start development server |
+| `bun build` | Build for production |
+| `bun start` | Start production server |
+| `bun lint` | Lint code |
+| `bun test` | Run tests |
 
 ## License
 
