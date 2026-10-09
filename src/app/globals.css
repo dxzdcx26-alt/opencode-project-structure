@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --hover: #f1f5f9;
+}
+
+.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --border: #334155;
+  --hover: #334155;
+}
+
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  background-color: var(--bg);
+  color: var(--text);
+  @apply antialiased transition-colors duration-200;
 }

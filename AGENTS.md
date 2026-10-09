@@ -10,61 +10,50 @@ Personal task manager that runs entirely in the browser. Data is saved to `local
 
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript (strict)
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS (with dark mode via `class`)
 - **Icons**: lucide-react
 - **State**: React useState + localStorage
 - **Package Manager**: bun / npm / pnpm
+
+## Features
+
+- Add, edit, complete, delete tasks
+- Priority: low / medium / high
+- Due date with overdue highlight
+- Filter: All / Active / Completed
+- Dark mode toggle (persisted)
+- Data persists in localStorage
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Main page (client component)
+│   ├── layout.tsx
+│   ├── page.tsx
 │   └── globals.css
-├── components/
-│   └── tasks/
-│       ├── TaskForm.tsx    # Add new task
-│       ├── TaskList.tsx    # List of tasks
-│       ├── TaskItem.tsx    # Single task (toggle, edit, delete)
-│       └── FilterBar.tsx   # All / Active / Completed filter
-└── types/
-    └── task.ts             # Task & Filter types
+├── components/tasks/
+│   ├── TaskForm.tsx
+│   ├── TaskList.tsx
+│   ├── TaskItem.tsx
+│   └── FilterBar.tsx
+└── types/task.ts
 ```
 
 ## Important Commands
 
 ```bash
-bun install          # or npm install / pnpm install
-bun dev              # Start dev server → http://localhost:3000
-bun build            # Production build
-bun start            # Start production server
-bun lint             # Run ESLint
-bun test             # Run tests (Vitest)
+bun install
+bun dev
+bun build
+bun start
+bun lint
 ```
-
-## Features
-
-- Add new tasks
-- Mark tasks as complete / active
-- Edit task title (double-click or pencil icon)
-- Delete tasks
-- Filter: All / Active / Completed
-- Clear all completed tasks
-- Persist data in localStorage
 
 ## Coding Rules
 
-- Use TypeScript strict mode — **no `any`**
-- Prefer small, focused components
-- Use early returns
-- Keep business logic out of pure UI components when possible
-- Use `clsx` for conditional class names
-- Accessible buttons (aria-label)
-
-## What to avoid
-
-- Don't use `any`
-- Don't put large logic inside JSX
-- Don't break the existing component structure without reason
+- TypeScript strict — no `any`
+- Small focused components
+- Support both light and dark mode with Tailwind `dark:` classes
+- Use `clsx` for conditional classes
+- Accessible controls (aria-label)

@@ -25,8 +25,8 @@ export function FilterBar({
   onClearCompleted,
 }: Props) {
   return (
-    <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 text-sm">
-      <span className="text-slate-500">
+    <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 text-sm dark:border-slate-700">
+      <span className="text-slate-500 dark:text-slate-400">
         {activeCount} item{activeCount !== 1 ? "s" : ""} left
       </span>
 
@@ -38,8 +38,8 @@ export function FilterBar({
             className={clsx(
               "rounded-md px-3 py-1 transition",
               filter === f.value
-                ? "bg-brand-50 font-medium text-brand-700"
-                : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                ? "bg-brand-50 font-medium text-brand-700 dark:bg-brand-900/40 dark:text-brand-300"
+                : "text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-200"
             )}
           >
             {f.label}
@@ -50,7 +50,7 @@ export function FilterBar({
       <button
         onClick={onClearCompleted}
         disabled={!hasCompleted}
-        className="text-slate-400 transition hover:text-red-500 disabled:invisible"
+        className="text-slate-400 transition hover:text-red-500 disabled:invisible dark:text-slate-500 dark:hover:text-red-400"
       >
         Clear completed
       </button>
