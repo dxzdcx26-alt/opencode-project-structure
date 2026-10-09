@@ -1,7 +1,8 @@
 # Code Style
 
-- Prefer clear names over abbreviations
-- Keep functions small and focused
-- Use consistent formatting (Prettier / project formatter)
-- Avoid deep nesting; early returns are preferred
+- Prefer clear, descriptive names
+- Keep functions small and single-purpose
+- Use early returns to reduce nesting
+- Follow the project's formatter (Prettier, etc.)
 - Comment only non-obvious intent
+- Avoid unnecessary abstractions

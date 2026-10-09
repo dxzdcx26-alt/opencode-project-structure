@@ -1,23 +1,23 @@
 ---
 name: deploy
-description: Deploy the application step by step with safety checks
+description: Safely deploy the application with checks and confirmation steps
 ---
 
 ## What I do
 
-Guide the user through a safe deployment process.
+Guide a safe deployment process with clear checkpoints.
 
 ## When to use me
 
-Use this skill when the user asks to deploy, release, or ship the application.
+When the user asks to deploy, release, ship, or push to production/staging.
 
-## Steps
+## Process
 
-1. Check current git status and ensure working tree is clean (or intentional)
-2. Confirm the target environment (staging / production)
+1. Check git status and recent commits
+2. Confirm target environment
 3. Run tests and lint if available
 4. Build the project
-5. Show the deployment command(s) and wait for confirmation before running destructive steps
+5. Show the exact deploy command(s) and wait for confirmation before running anything destructive
 6. Verify the deployment after it finishes
 
-Always prefer the project's existing deploy scripts or CI pipeline over ad-hoc commands.
+Always prefer the project's existing CI/CD or deploy scripts over ad-hoc commands.

@@ -1,9 +1,12 @@
-# Personal overrides (git-ignored)
+# Personal Overrides (git-ignored)
 
-Add your personal preferences here.
-This file should be listed in `.gitignore`.
+Put your personal preferences here. This file is ignored by git.
 
-Example:
-- Preferred model
+Examples:
+
+- Preferred model or temperature
 - Personal coding style notes
-- Local paths or secrets notes (never put real secrets)
+- Local tool paths
+- Things you always want the agent to remember about how *you* work
+
+Never put real secrets or API keys here.

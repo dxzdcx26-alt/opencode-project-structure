@@ -1,10 +1,11 @@
 ---
-description: Investigate and fix a bug
+description: Investigate and fix a reported bug
 ---
 
 Investigate the reported issue carefully.
 
-1. Reproduce or understand the root cause
-2. Propose a minimal, correct fix
-3. Add or update tests if appropriate
-4. Explain what changed and why
+1. Understand the problem and reproduce it if possible
+2. Find the root cause
+3. Propose a minimal, correct fix
+4. Add or update tests if appropriate
+5. Explain what changed and why

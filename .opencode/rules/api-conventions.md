@@ -1,7 +1,8 @@
 # API Conventions
 
-- Use consistent error response shape
 - Validate all external input
-- Prefer explicit status codes
+- Use consistent error response shape
+- Return appropriate HTTP status codes
+- Prefer explicit over implicit behavior
 - Document breaking changes
-- Keep endpoints RESTful (or follow the project's existing style)
+- Follow the existing API style of the project

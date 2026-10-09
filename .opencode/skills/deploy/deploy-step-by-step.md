@@ -1,11 +1,13 @@
-# Deploy Step-by-Step
+# Deploy Checklist
 
-Detailed checklist (customize for your project):
+Customize this for your project:
 
-1. `git status` & `git log -5`
-2. Run full test suite
-3. Build production artifacts
-4. Confirm environment variables / secrets
-5. Deploy via your preferred method (CI, script, platform CLI)
-6. Smoke-test the live endpoint
-7. Tag the release if successful
+1. `git status` + `git log -5 --oneline`
+2. Ensure working tree is clean (or changes are intentional)
+3. Run full test suite
+4. Run lint / typecheck
+5. Build production artifacts
+6. Confirm environment variables / secrets
+7. Deploy using project script or CI
+8. Smoke test the live endpoint
+9. Create git tag if successful

@@ -1,7 +1,8 @@
 # Testing Guidelines
 
 - Write tests for new behavior and bug fixes
-- Prefer unit tests for pure logic, integration tests for boundaries
-- Keep tests readable and independent
-- Name tests after the behavior they verify
-- Run the relevant test suite before finishing a task
+- Prefer behavior-focused test names
+- Keep tests independent and readable
+- Cover important edge cases
+- Reuse existing test helpers and fixtures
+- Run the relevant tests before finishing a task

@@ -1,41 +1,52 @@
-# OpenCode Project Structure
+# OpenCode Project Template
 
 A clean, production-ready structure for OpenCode projects.
 
-## Project Overview
+## Purpose
 
-This is a starter template for OpenCode (open-source AI coding agent).
+This repository is a starter template for using OpenCode effectively.  
+Copy this structure into your real project and customize `AGENTS.md` to match your codebase.
 
 ## Project Structure
 
 ```
-project/
-├── AGENTS.md                     # Project overview & coding guidelines
+.
+├── AGENTS.md                     # Project context & rules (read every session)
 ├── AGENTS.local.md               # Personal overrides (git-ignored)
-├── opencode.json                 # Main config (model, permissions, MCP)
+├── opencode.json                 # Model, permissions, MCP
 ├── .opencode/
 │   ├── agents/                   # Specialized sub-agents
 │   ├── commands/                 # Custom slash commands
-│   ├── skills/                   # Auto-loaded skills
+│   ├── skills/                   # Reusable skills
 │   └── rules/                    # Modular coding rules
-└── ...
+└── README.md
 ```
 
 ## Coding Guidelines
 
 - Prefer clear, readable code over clever one-liners
-- Follow existing project conventions
-- Write tests for new features
-- Use TypeScript strict mode when applicable
+- Follow existing project conventions strictly
+- Always write or update tests when changing behavior
+- Use early returns to avoid deep nesting
+- Never commit secrets, API keys, or `.env` files
+- Prefer small, focused functions and modules
 
-## Commands
+## Development Workflow
 
-- Build / Test / Lint: follow the project's package.json scripts
-- Always run tests before finishing a task
+1. Understand the existing code before making changes
+2. Make the smallest correct change possible
+3. Run relevant tests / lint after changes
+4. Explain what you changed and why
 
-## How it works
+## Commands (examples — update for your project)
 
-1. OpenCode reads `AGENTS.md` automatically every session
-2. Loads skills, agents, and commands from `.opencode/`
-3. Connects to tools via MCP (configured in `opencode.json`)
-4. You get better, safer, and more consistent results
+- Install: `npm install` / `bun install` / `pnpm install`
+- Dev: `npm run dev`
+- Test: `npm test`
+- Lint: `npm run lint`
+- Build: `npm run build`
+
+## How OpenCode uses this file
+
+OpenCode automatically loads `AGENTS.md` at the start of every session.  
+Keep it under ~200 lines. Put detailed rules in `.opencode/rules/` and reference them when needed.

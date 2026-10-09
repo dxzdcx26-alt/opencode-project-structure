@@ -6,11 +6,15 @@
       "*": "ask",
       "git status": "allow",
       "git diff *": "allow",
+      "git log *": "allow",
       "ls *": "allow",
-      "cat *": "allow"
+      "cat *": "allow",
+      "pwd": "allow",
+      "which *": "allow"
     },
     "edit": "ask",
-    "write": "ask"
+    "write": "ask",
+    "read": "allow"
   },
   "mcp": {}
 }
