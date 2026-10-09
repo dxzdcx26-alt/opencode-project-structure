@@ -1,54 +1,94 @@
-# OpenCode Project Template
+# TaskFlow - Demo Test Project
 
-A clean, production-ready structure for OpenCode projects.
+A simple full-stack task management app used for testing OpenCode.
 
 ## Purpose
 
-This is a starter template. Copy it into your real project and customize this file.
+This is a demo/test project to practice using OpenCode with a realistic structure.
+
+## Tech Stack
+
+- **Frontend**: Next.js 15 (App Router) + TypeScript + Tailwind CSS
+- **Backend**: Next.js API Routes
+- **Database**: SQLite (via Prisma)
+- **Auth**: NextAuth.js (Credentials provider for demo)
+- **Validation**: Zod
+- **Testing**: Vitest + Testing Library + Playwright
+- **Package Manager**: bun
 
 ## Project Structure
 
 ```
-.
-├── AGENTS.md                     # This file - project context & rules
-├── AGENTS.local.md               # Personal overrides (git-ignored)
-├── opencode.json                 # Model, permissions, MCP
-├── .opencode/
-│   ├── agents/                   # Specialized sub-agents
-│   ├── commands/                 # Custom slash commands
-│   ├── skills/                   # Reusable skills
-│   └── rules/                    # Modular coding rules
-└── README.md
+src/
+├── app/                    # Next.js App Router
+│   ├── (auth)/             # Auth pages (login/register)
+│   ├── (dashboard)/        # Protected pages
+│   ├── api/                # API routes
+│   └── layout.tsx
+├── components/             # Reusable UI components
+│   ├── ui/                 # Base components (Button, Input...)
+│   └── tasks/              # Task-related components
+├── lib/                    # Utilities, db client, auth config
+├── features/               # Feature-based modules
+│   ├── tasks/
+│   └── users/
+└── types/                  # Shared TypeScript types
 ```
 
-## Coding Guidelines
+## Important Commands
 
-- Prefer clear, readable code over clever one-liners
-- Follow existing project conventions strictly
-- Always write or update tests when changing behavior
+```bash
+bun install                 # Install dependencies
+bun dev                     # Start development server
+bun test                    # Run unit tests
+bun test:e2e                # Run Playwright e2e tests
+bun lint                    # Run ESLint
+bun build                   # Production build
+bun db:push                 # Push Prisma schema to DB
+bun db:studio               # Open Prisma Studio
+```
+
+## Coding Rules
+
+- Use TypeScript strict mode — **no `any`**
+- Prefer Server Components by default, use Client Components only when needed
+- All forms must use Zod validation
+- API routes must return consistent error shape: `{ error: string, code?: string }`
+- Always write unit tests for new business logic
 - Use early returns to avoid deep nesting
-- Never commit secrets, API keys, or `.env` files
-- Prefer small, focused functions and modules
-- Explain non-obvious decisions in comments sparingly
+- Keep components small and focused
+- Use `features/` folder for domain logic, `components/` for pure UI
 
-## Development Workflow
+## Database
 
-1. Understand the existing code before making changes
-2. Make the smallest correct change possible
-3. Run relevant tests / lint after changes
-4. Explain what you changed and why
+- Prisma schema lives in `prisma/schema.prisma`
+- Main models: `User`, `Task`, `Project`
+- Always run `bun db:push` after changing the schema
 
-## Common Commands (update these for your project)
+## Authentication
 
-- Install: `npm install` / `bun install` / `pnpm install`
-- Dev: `npm run dev`
-- Test: `npm test`
-- Lint: `npm run lint`
-- Build: `npm run build`
+- NextAuth.js with Credentials provider (for demo only)
+- Protected routes use middleware in `src/middleware.ts`
+- Session available via `auth()` helper in Server Components
 
-## Rules Location
+## Testing Guidelines
 
-Detailed rules live in `.opencode/rules/`. Load them when relevant:
-- Code style → `.opencode/rules/code-style.md`
-- Testing → `.opencode/rules/testing.md`
-- API design → `.opencode/rules/api-conventions.md`
+- Unit tests: put next to the file or in `__tests__` folder
+- Use `data-testid` for important interactive elements
+- Prefer user-centric assertions (Testing Library)
+- E2E tests live in `e2e/`
+
+## What to avoid
+
+- Don't put business logic inside React components
+- Don't use `any` or disable TypeScript checks
+- Don't commit `.env` or database files
+- Don't create giant components (>150 lines)
+
+## Current Focus (Demo)
+
+This project is intentionally simple so we can test OpenCode features:
+- Planning with `/plan`
+- Code review with `/review`
+- Writing tests with `/write-tests`
+- Fixing bugs with `/fix-issue`
