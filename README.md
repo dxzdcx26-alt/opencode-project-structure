@@ -1,6 +1,6 @@
 # OpenCode Project Structure
 
-Clean, production-ready project structure for **OpenCode** (the open-source AI coding agent).
+Clean, production-ready project structure for **OpenCode** — the open-source AI coding agent.
 
 Converted and improved from the popular Claude Code project structure.
 
@@ -12,19 +12,54 @@ cd opencode-project-structure
 opencode
 ```
 
-Or copy the whole structure into your existing project.
+Or copy the structure into your existing project.
 
-## What's Included
+## Full Structure
 
-| Path | Purpose |
-|------|---------|
-| `AGENTS.md` | Main project context & coding guidelines |
-| `AGENTS.local.md` | Personal overrides (git-ignored) |
-| `opencode.json` | Model, permissions, MCP configuration |
-| `.opencode/agents/` | Specialized sub-agents |
-| `.opencode/commands/` | Custom slash commands (`/review`, `/fix-issue`) |
-| `.opencode/skills/` | Reusable skills |
-| `.opencode/rules/` | Modular rules (style, testing, API) |
+```
+.
+├── AGENTS.md                     # Project context & coding guidelines
+├── AGENTS.local.md               # Personal overrides (git-ignored)
+├── opencode.json                 # Model, permissions, MCP
+├── .env.example                  # Example environment variables
+├── LICENSE
+├── README.md
+└── .opencode/
+    ├── agents/
+    │   ├── code-reviewer.md
+    │   ├── security-auditor.md
+    │   ├── test-writer.md
+    │   ├── planner.md
+    │   └── docs-writer.md
+    ├── commands/
+    │   ├── review.md             # /review
+    │   ├── fix-issue.md          # /fix-issue
+    │   ├── write-tests.md        # /write-tests
+    │   ├── plan.md               # /plan
+    │   ├── docs.md               # /docs
+    │   └── refactor.md           # /refactor
+    ├── skills/
+    │   ├── deploy/
+    │   ├── refactor/
+    │   ├── write-tests/
+    │   └── code-review/
+    └── rules/
+        ├── code-style.md
+        ├── testing.md
+        ├── api-conventions.md
+        └── git-conventions.md
+```
+
+## Available Slash Commands
+
+| Command | Description |
+|---------|-------------|
+| `/review` | Thorough code review |
+| `/fix-issue` | Investigate and fix a bug |
+| `/write-tests` | Write or improve tests |
+| `/plan` | Create a step-by-step plan |
+| `/docs` | Generate or improve documentation |
+| `/refactor` | Safely refactor code |
 
 ## Mapping from Claude Code
 
@@ -43,8 +78,9 @@ Or copy the whole structure into your existing project.
 
 1. Edit `AGENTS.md` to describe **your real project**
 2. Set your preferred model in `opencode.json`
-3. Add or customize agents / skills / commands as needed
-4. Run `/init` inside OpenCode to let it improve `AGENTS.md` automatically
+3. Copy `.env.example` → `.env` and add your keys (never commit `.env`)
+4. Run `/init` inside OpenCode to let it improve `AGENTS.md`
+5. Start working — try `/plan` or `/review`
 
 ## License
 

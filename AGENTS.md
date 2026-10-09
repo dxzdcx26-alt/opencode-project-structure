@@ -4,14 +4,13 @@ A clean, production-ready structure for OpenCode projects.
 
 ## Purpose
 
-This repository is a starter template for using OpenCode effectively.  
-Copy this structure into your real project and customize `AGENTS.md` to match your codebase.
+This is a starter template. Copy it into your real project and customize this file.
 
 ## Project Structure
 
 ```
 .
-├── AGENTS.md                     # Project context & rules (read every session)
+├── AGENTS.md                     # This file - project context & rules
 ├── AGENTS.local.md               # Personal overrides (git-ignored)
 ├── opencode.json                 # Model, permissions, MCP
 ├── .opencode/
@@ -30,6 +29,7 @@ Copy this structure into your real project and customize `AGENTS.md` to match yo
 - Use early returns to avoid deep nesting
 - Never commit secrets, API keys, or `.env` files
 - Prefer small, focused functions and modules
+- Explain non-obvious decisions in comments sparingly
 
 ## Development Workflow
 
@@ -38,7 +38,7 @@ Copy this structure into your real project and customize `AGENTS.md` to match yo
 3. Run relevant tests / lint after changes
 4. Explain what you changed and why
 
-## Commands (examples — update for your project)
+## Common Commands (update these for your project)
 
 - Install: `npm install` / `bun install` / `pnpm install`
 - Dev: `npm run dev`
@@ -46,7 +46,9 @@ Copy this structure into your real project and customize `AGENTS.md` to match yo
 - Lint: `npm run lint`
 - Build: `npm run build`
 
-## How OpenCode uses this file
+## Rules Location
 
-OpenCode automatically loads `AGENTS.md` at the start of every session.  
-Keep it under ~200 lines. Put detailed rules in `.opencode/rules/` and reference them when needed.
+Detailed rules live in `.opencode/rules/`. Load them when relevant:
+- Code style → `.opencode/rules/code-style.md`
+- Testing → `.opencode/rules/testing.md`
+- API design → `.opencode/rules/api-conventions.md`
